@@ -3,3 +3,5 @@
 git add nazwa pliku - dodanie plik do repozytorium  
 git commit -m "Twoj Komentarz" -uchwycenie stanu obecnego repozytorium  
 git push -przeslanie commitow na centralne repozytorium  
+# Instalacja
+visual studio code -edytor 
