@@ -5,6 +5,7 @@ git commit -m "Twoj Komentarz" -uchwycenie stanu obecnego repozytorium
 git push -przeslanie commitow na centralne repozytorium  
 # Instalacja
 visual studio code -edytor 
+https://help.github.com/articles/connecting-to-github-with-ssh/
 # TODO
  https://getbootstrap.com/docs/4.1/getting-started/introduction/  
  https://getbootstrap.com/docs/4.1/components/
