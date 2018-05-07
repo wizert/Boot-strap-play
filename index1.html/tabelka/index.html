@@ -8,36 +8,87 @@
          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <br> <br> <br> <br> 
+        <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+                Tooltip on top
+              </button>
+              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                Tooltip on right
+              </button>
+              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">
+                Tooltip on bottom
+              </button>
+              <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="Tooltip on left">
+                Tooltip on left
+              </button>
+              <br> <br>
+        <h2>Tabela</h2>
             <table class="table table-dark">
                     <thead>
                       <tr>
                         <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">Imie</th>
+                        <th scope="col">Nazwisko</th>
+                        <th scope="col">Data Urodzenia</th>
+                        <th scope="col">Adres</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                        <td>Tomasz</td>
+                        <td>Posacki</td>
+                        <td>@tomas@gmail.com</td>
+                        <td>Warszawa Belwederska 21/2</td>
                       </tr>
                       <tr>
                         <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                        <td>Andrew  </td>
+                        <td>Zapolny</td>
+                        <td>@andzap@gmail.com</td>
+                        <td>Wroclaw , Marszałkowska 3</td>
                       </tr>
                       <tr>
                         <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
+                        <td>Katarzyna  </td>
+                        <td>Marcinkowska</td>
                         <td>@twitter</td>
+                        <td>Gdańsk,Hallera 32/3</td>
                       </tr>
+                      <tr>
+                            <th scope="row">4</th>
+                            <td>Tomasz</td>
+                            <td>Posacki</td>
+                            <td>@tomas@gmail.com</td>
+                            <td>Warszawa Belwederska 21/2</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">5</th>
+                            <td>Andrew  </td>
+                            <td>Zapolny</td>
+                            <td>@andzap@gmail.com</td>
+                            <td>Wroclaw , Marszałkowska 3</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">6</th>
+                            <td>Katarzyna  </td>
+                            <td>Marcinkowska</td>
+                            <td>@twitter</td>
+                            <td>Gdańsk,Hallera 32/3</td>
+                          </tr>
                     </tbody>
                   </table>
+                  <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-end">
+                          <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                          </li>
+                          <li class="page-item"><a class="page-link" href="#">1</a></li>
+                          <li class="page-item"><a class="page-link" href="#">2</a></li>
+                          <li class="page-item"><a class="page-link" href="#">3</a></li>
+                          <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                          </li>
+                        </ul>
+                      </nav>
     </body>
 </html>
