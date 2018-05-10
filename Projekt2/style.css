@@ -1,0 +1,11 @@
+.tabs {
+    margin: 0;
+    padding: 0;
+}
+.tabs li {
+    float: left;
+    list-style: none;
+}
+.tabbedPanels {
+    width: 50%
+  }
