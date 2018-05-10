@@ -9,3 +9,28 @@
 .tabbedPanels {
     width: 50%
   }
+.tabs a {
+    display: block;
+    text-decoration: none;
+    padding: 3px 5px;
+}
+.tabs a.active {
+    background-color: rgb(255, 255, 255);
+}
+panelContainer {
+    clear: left;
+}
+.panel h2 {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif
+}
+$(document).ready(function() {
+    $('.tabs a').click(function() {
+        $this = $(this);
+        $('.panel').hide();      
+        $('.tabs a.active').removeClass('active'); 
+        $this.addClass('active').blur();     
+    });
+// koniec funkcji click
+}); 
+// koniec funkcji ready
