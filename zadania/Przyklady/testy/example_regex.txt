@@ -1,0 +1,25 @@
+Kod pocztowy
+var ZipCode = /\d{2}(-\d{3})?/;
+Jeśli chcesz mieć pewność, że łańcuch zawiera wyłącznie kod pocztowy, to użyj znaków ^ oraz $ by dopasować wyrażenie do początku i końca łańcucha:
+var ZipCode = /^\d{5}(-\d{4})?$/;
+
+Numer telefonu stacjonarnego
+var phoneNum = /\(?(\d{3})\)?[ -.](\d{3})[ -.](\d{4})/;
+Jeśli chcesz mieć pewność, że łańcuch zawiera wyłącznie numer telefonu, to użyj znaków ^ oraz $ by dopasować wyrażenie do początku i końca łańcucha:
+var ZipCode = /^\(?(\d{3})\)?[ -.](\d{3})[ -.](\d{4})$/;
+
+Adred e-mail 
+var email = /[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}/;
+Jeśli chcesz mieć pewność, że łańcuch zawiera wyłącznie adres e-mail, to użyj znaków ^ oraz $ by dopasować wyrażenie do początku i końca łańcucha:
+var email = /^[-\w.]+@([A-z0-9][-A-z0-9]+\.)+[A-z]{2,4}$/;
+
+Data
+var date = /([0123]?\d)[-\/ .]([01]?\d)[-\/ .](\d{4})/;
+Jeśli chcesz mieć pewność, że łańcuch zawiera wyłącznie datę, to użyj znaków ^ oraz $ by dopasować wyrażenie do początku i końca łańcucha:
+var date = /^([0123]?\d)[-\/ .]([01]?\d)[-\/ .](\d{4})$/;
+
+Adres URL
+var URL = /((\bhttps?:\/\/)|(\bwww\.))\S*/;
+Jeśli chcesz mieć pewność, że łańcuch zawiera wyłącznie adres URL, to użyj znaków ^ oraz $ by dopasować wyrażenie do początku i końca łańcucha 
+oraz usuń z wyrażenia znaki \b:
+var URL = /^((https?:\/\/)|(www\.))\S*$/;

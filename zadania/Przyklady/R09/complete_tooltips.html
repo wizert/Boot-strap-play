@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Etykietki ekranowe</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('[title]').tooltip();
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Etykietki ekranowe</h1>
+			<p>Etykietki eranowe można dodawać do dowolnych elementów stron.</p>
+			<div class="row">
+			<p title="Owszem, jestem akapitem.">Akapit tekstu.</p>
+			<p>Obrazek <img src="images/map.png" title="A ja jestem mapą!"></p>
+			<p><button title="Kliknij ten przycisk!">Przycisk</button></p>
+			</div>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

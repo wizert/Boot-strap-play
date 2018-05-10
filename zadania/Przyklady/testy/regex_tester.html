@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Testy wyrażeń regularnych :: JavaScript i jQuery. Nieoficjalny podręcznik</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/site.js"></script><script>
+$(document).ready(function() {
+		var regObject = {};
+			
+		function displayResults(message) {
+			if ($('#resultSection:visible').length==0) $('#resultSection').show();
+			$('#testResults').html('<p>' + message + '</p>');
+		}
+		
+		function buildResults() {
+			var resultString="No match"; // domyślne ustawienie
+			var formatSearch = regObject.testString.replace(regObject.regex,'<strong class="found">$&</strong>');
+			
+
+			switch (regObject.method) {
+				case 'search' :
+					if(regObject.results==-1) break; // brak dopasowania
+					resultString = 'Znaleziono na pozycji ' + regObject.results;
+					resultString += ' w łańcuchu: <br>' + formatSearch + '';
+					break;
+				case 'match' : 
+					if (! regObject.results) break; // brak dopasowania
+					resultString = '';
+					for (i in regObject.results) {
+						resultString += (i + ':');
+						if (i == 'input') {
+							resultString += (formatSearch);
+						} else {
+							resultString += regObject.results[i];
+						}
+						resultString += '<br>';
+					}
+					break;
+				case 'replace' :
+					if (regObject.results==regObject.testString) break; // brak dopasowania
+					resultString = '';
+					resultString += regObject.results;
+					break;
+			}
+			var prependString = "Wyrażenie reg.: /" + regObject.reValue + "/<br>";
+			return prependString + resultString;
+		}
+				
+	
+
+			
+		$('#regexTester').submit(function() {
+			
+			//pobranie łańcucha znaków
+			regObject.testString = $('#string').val();
+			
+			//jakieś opcje
+			regObject.options='';
+			$(':checkbox:checked').each(function() {
+				regObject.options += $(this).val();																 
+			});
+			
+			
+			//pobranie wartości wyrażenia regularnego i skonwertowanie go na obiekt regexp
+			regObject.reValue = $('#regex').val();
+			try {
+			regObject.regex = new RegExp(regObject.reValue,regObject.options);
+			} catch (e) {
+				displayResults("WYRAŻENIE REGUALARNE JEST BŁĘDNE<br>" + e);
+				return false;
+			}
+			
+			//metoda
+			regObject.method = $('[name=method]:checked').val();
+			
+			//metoda replace
+			if (regObject.method=='replace') {
+				regObject.replaceString = $('#replaceString').val();
+			}
+			
+			if (regObject.method=='search') {
+				regObject.results = regObject.testString.search(regObject.regex);
+			} else if (regObject.method=='match')  {
+				regObject.results = regObject.testString.match(regObject.regex);
+			}	else {
+				regObject.results = regObject.testString.replace(regObject.regex,'<strong class="found">' + regObject.replaceString + "</strong>");
+			}
+			displayResults(buildResults());
+		
+				
+	
+			return false;
+			
+	  });
+		
+		//ukrycie ramki zamiennika aż do momentu gdy będzie potrzebna
+		$('#replaceBox').hide();
+		//wyświetlenie ramki zamiennika jeśli wybrano metodę replace
+		$('#replace').click(function() {
+			$('#replaceBox').show('fast')
+		 });
+		//ukrycie ramki zamiennika jeśli wybrano którykolwiek z pozostałych przycisków opcji
+		$('#search, #match').click(function() {
+			$('#replaceBox').hide('fast')
+		});
+});
+
+
+
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>Testowanie wyrażeń regularnych</h1>
+      <div class="results resultSection">
+        <h2>Wyniki <small>(Dopasowany tekst jest wyświetlony na czerwono)</small></h2>
+        <div id="testResults">&nbsp;</div>
+      </div>
+      <form action="" method="post" name="form1" id="regexTester">
+        <h2>Test</h2>
+        <p>
+          <label for="string" class="label">Testowany łańcuch znaków</label>
+          <textarea name="string" rows="3" class="wide" id="string"></textarea>
+        </p>
+        <p>
+          <label for="regex" class="label">Używane wyrażenie regularne</label>
+          <input name="regex" type="text" class="wide" id="regex">
+        </p>
+        <p><span class="label">Używana metoda:</span>
+          <label>
+            <input name="method" type="radio" id="search" value="search" checked>
+            Search</label>
+          &nbsp;&nbsp;
+          <label>
+            <input type="radio" name="method" id="match" value="match">
+            Match</label>
+          &nbsp;&nbsp;
+          <label>
+            <input type="radio" name="method" id="replace" value="replace">
+            Replace</label>
+        </p>
+        <div id="replaceBox">
+          <label for="replaceString">Zamiennik:</label>
+          <input name="replaceString" type="text" class="medium" id="replaceString">
+        </div>
+        <p><span class="label">Opcje:</span>
+          <label>
+            <input name="case" type="checkbox" id="case" value="i">
+            Ignorowanie wiekości liter</label>
+          &nbsp;&nbsp;
+          <label>
+            <input name="global" type="checkbox" id="global" value="g">
+            Wyszukiwanie globalne</label>
+        </p>
+        <input type="submit" name="button" id="button" value="Wykonaj">
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+  <div id="resources">
+    <p class="open">+</p>
+    <h2>Testy</h2>
+    <ul class="nav">
+      <li><a href="selectors.html">Selektory jQuery</a></li>
+      <li><a href="content_functions.html">Testy funkcji content jQuery</a></li>
+      <li><a href="events.html">Testy zdarzeń</a></li>
+      <li><a href="effects.html">Testy efektów jQuery</a></li>
+      <li><a href="array_methods.html">Testy metod tablic</a></li>
+      <li><a href="regex_tester.html">Testy wyrażeń regularnych</a></li>
+    </ul>
+    <h2>Zasoby związane z jQuery</h2>
+    <ul class="nav">
+      <li><a href="http://jquery.com">jQuery</a></li>
+      <li><a href="http://jqueryui.com/">jQuery UI</a></li>
+      <li><a href="http://jquerymobile.com/">jQuery Mobile</a></li>
+      <li><a href="http://jqapi.com/">jQAPI.com</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

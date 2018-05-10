@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Widżet Sortable</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="interactions.css" rel="stylesheet" >
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  
+   $('#wishList').sortable({
+   		connectWith : '#shoppingCart',
+   		containment : '.main',
+   		receive : function (event, ui) {
+   			ui.sender.effect('highlight');
+   		}
+   });
+
+   $('#shoppingCart').sortable({
+   	connectWith : '#wishList',
+   	containment : '.main',
+   });
+   
+}); // Koniec funkcji ready
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Lista życzeń</h1>
+					 <ul class="productList" id="wishList">
+						<li class="product">Figurka Spidermana</li>
+						<li class="product">Rower</li>
+					</ul>
+				  <h1>Koszyk</h1>
+					<ul class="productList" id="shoppingCart">
+						<li class="product">Pistolet Nerf</li>
+						<li class="product">Podkolanówki</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

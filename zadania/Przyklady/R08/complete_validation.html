@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Zabawa z formularzami</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#signup label.error {
+  font-size: 0.8em;
+  color: #F00;
+  font-weight: bold;
+  display: block;
+  margin-left: 215px;
+}
+#signup  input.error, #signup select.error  {
+  background: #FFA9B8;
+  border: 1px solid red;
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script src="jquery_validate/jquery.validate.min.js"></script>
+<script>
+$(document).ready(function() {
+ $('#signup').validate({
+   rules: {
+     email: {
+        required: true,
+        email: true
+     },
+     password: {
+        required: true,
+        rangelength:[8,16]
+     },
+     confirm_password: {equalTo:'#password'},
+     spam: "required"
+   }, // Koniec obiektu rules.
+   messages: {
+	      email: {
+	          required: "Podaj adres e-mail.",
+	          email: "To nie jest prawidłowy adres e-mail."
+	        },
+	        password: {
+	          required: 'Wpisz hasło.',
+	          rangelength: 'Hasło musi mieć od 8 do 16 znaków.'
+	        },
+	        confirm_password: {
+	          equalTo: 'Podane hasła nie pasują do siebie.'
+	        }
+   },
+   errorPlacement: function(error, element) { 
+       if ( element.is(":radio") || element.is(":checkbox")) {
+          error.appendTo( element.parent()); 
+        } else {
+          error.insertAfter(element);
+        } 
+    } 
+
+  }); // Koniec funkcji validate.
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+	<div class="main">
+	<h1>Rejestracja</h1>
+    <form action="process.html" method="post" name="signup" id="signup">
+      <div>
+        <label for="name" class="label">Imię i nazwisko</label>
+        <input name="name" type="text" class="required" id="name" title="Wpisz imię i nazwisko.">
+      </div>
+      <div>
+        <label for="email" class="label">Adres e-mail</label>
+        <input name="email" type="text" class="required" id="email" title="Wpisz swój adres e-mail.">
+      </div>
+      <div>
+        <label for="password" class="label">Hasło</label>
+        <input name="password" type="password" class="required" id="password" title="Wpisz hasło.">
+      </div>
+      <div>
+        <label for="confirm_password" class="label">Potwierdź hasło</label>
+        <input name="confirm_password" type="password" id="confirm_password">
+      </div>
+      <div><span class="label">Hobby</span>
+        <input name="hobby" type="checkbox" id="heliskiing" value="heliskiing" class="required" title="Zaznacz przynajmniej 1 hobby.">
+        <label for="heliskiing">Heliskiing</label>
+        <input name="hobby" type="checkbox" id="pickle" value="pickle">
+        <label for="pickle">Jedzenie korniszonów</label>
+        <input name="hobby" type="checkbox" id="walnut" value="walnut">
+        <label for="walnut">Produkcja masła orzechowego</label>
+      </div>
+      <div>
+        <label for="dob" class="label">Data urodzenia</label>
+        <input name="dob" type="text" id="dob" class="date" title="Podaj datę urodzenia w formacie 01/19/2000.">
+      </div>
+      <div>
+        <label for="planet" class="label">Planeta urodzenia</label>
+        <select name="planet" id="planet" class="required" title="Wybierz planetę.">
+          <option value="">--Proszę wybrać planetę--</option>
+          <option value="earth">Ziemia</option>
+          <option value="mars">Mars</option>
+          <option value="alpha centauri">Alpha Centauri</option>
+          <option value="forget about it">Nawet o niej nie słyszałeś</option>
+        </select>
+      </div>
+      <div>
+        <label for="comments" class="label">Komentarze</label>
+        <textarea name="comments" cols="15" rows="5" id="comments"></textarea>
+      </div>
+      <div class="labelBlock">Czy chcesz otrzymywać od nas irytujące listy elektroniczne? </div>
+      <div class="indent">
+        <input  type="radio" name="spam" id="yes" value="yes" class="required" title="Zaznacz jedno z pól.">
+        <label for="yes">Tak</label>
+        <input type="radio" name="spam" id="definitely" value="definitely">
+        <label for="definitely">Zdecydowanie</label>
+        <input type="radio" name="spam" id="choice" value="choice">
+        <label for="choice">A czy mam jakiś wybór?</label>
+      </div>
+      <div>
+        <input type="submit" name="submit" id="submit" value="Wyślij">
+      </div>
+    </form>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

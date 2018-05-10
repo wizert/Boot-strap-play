@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Widżet Autocomplete</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="form.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+	var colors = ['szkarłat', 'czerwień biskupia', 'bordowy', 'wiśniowy',
+	              'rodopsyna', 'cynober', 'ciemnoczerwony',
+	              'czerwonopomarańczowy'];
+	$('#redInput').autocomplete( { source : colors } );
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Widżet Autocomplete</h1>
+			<form>
+			  	<label for="redInput" class="label">Wybierz odcień czerwonego</label>
+			  	<input type="text" id="redInput">
+			</form>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie funkcji console.log()</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  console.log('GOTOWE');	
+  $('#comments').keyup(function() {
+  	console.log('Zdarzenie: keyup');
+  	 var text = $(this).val();
+   	console.log('Treść komentarza: ',text);
+	  var chars = text.length;
+    console.log('Liczba znaków: ',chars);
+	  $('#count').text(chars + " znaków");
+  }); // Koniec funkcji keyup.
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Stosowanie funkcji console.log()</h1>
+			
+		<form name="console" method="post" action="" id="console">
+    <p>
+    <label for="comments">Komentarze</label>
+    <textarea name="comments" id="comments" cols="35" rows="5"></textarea> <span id="count"></span></p>
+    </form>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

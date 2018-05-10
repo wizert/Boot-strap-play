@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Prosty quiz</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script>
+var score=0;
+var questions = [
+  ['Ile księżyców ma Ziemia?', 1],
+  ['Ile księżyców ma Saturn?',31],
+  ['Ile księżyców ma Wenus?', 0]
+];
+function askQuestion(question) {
+  var answer = prompt(question[0],'');
+  if (answer == question[1]) {
+  	alert('Prawidłowa odpowiedź!');
+    score++;
+  } else {
+	  alert('Błąd. Prawidłowa odpowiedź to ' + question[1]);
+  }
+}
+for (var i=0; i<questions.length; i++) {
+ askQuestion(questions[i]);
+}
+
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+<div class="content">
+	<div class="main">
+    <h1>Prosty quiz</h1>
+		<script>
+		var message = 'Liczba punktów ' + score;
+		message += ' z ' + questions.length;
+		message += '.';
+		document.write('<p>' + message + '</p>');
+		</script> </div>
+</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

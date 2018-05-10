@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Zestawy kart</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#tabContainer').tabs({
+  		load: function(evt,ui) {
+  			var newHTML = ui.panel.find('#main').html();
+  			ui.panel.html(newHTML);
+  		}
+  });
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Zestaw kart</h1>
+			 <div id="tabContainer">
+				<ul>
+				  <li><a href="panel1.html">Karta 1</a></li>
+				  <li><a href="panel2.html">Karta 2</a></li>
+				  <li><a href="panel3.html">Karta 3</a></li>
+				</ul>
+			</div>
+  </div>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

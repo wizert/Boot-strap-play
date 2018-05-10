@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Zabawa z formularzami</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+
+</style>
+<script src="../_js/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+	<div class="main">
+	<h1>Rejestracja</h1>
+		<form action="process.html" method="post" name="signup" id="signup">
+			<div>
+				<label for="name" class="label">Imię i nazwisko</label>
+				<input name="name" type="text" id="name" >
+			</div>
+			<div>
+				<label for="email" class="label">Adres e-mail</label>
+				<input name="email" type="text" id="email">
+			</div>
+			<div>
+				<label for="password" class="label">Hasło</label>
+				<input name="password" type="password" id="password">
+			</div>
+			<div>
+				<label for="confirm_password" class="label">Potwierdź hasło</label>
+				<input name="confirm_password" type="password" id="confirm_password">
+			</div>
+			<div><span class="label">Hobby</span>
+				<input name="hobby" type="checkbox" id="heliskiing" value="heliskiing">
+        <label for="heliskiing">Heliskiing</label>
+        <input name="hobby" type="checkbox" id="pickle" value="pickle">
+        <label for="pickle">Jedzenie korniszonów</label>
+        <input name="hobby" type="checkbox" id="walnut" value="walnut">
+        <label for="walnut">Produkcja masła orzechowego</label>
+			</div>
+			<div>
+				<label for="dob" class="label">Data urodzenia</label>
+				<input name="dob" type="text" id="dob">
+			</div>
+			<div>
+				<label for="planet" class="label">Planeta urodzenia</label>
+				<select name="planet" id="planet">
+          <option value="">--Proszę wybrać planetę--</option>
+          <option value="earth">Ziemia</option>
+          <option value="mars">Mars</option>
+          <option value="alpha centauri">Alpha Centauri</option>
+          <option value="forget about it">Nawet o niej nie słyszałeś</option>
+				</select>
+			</div>
+			<div>
+				<label for="comments" class="label">Komentarze</label>
+				<textarea name="comments" cols="15" rows="5" id="comments"></textarea>
+			</div>
+			<div class="labelBlock">Czy chcesz otrzymywać od nas irytujące listy elektroniczne? </div>
+			<div class="indent">
+				<input  type="radio" name="spam" id="yes" value="yes">
+				<label for="yes">Tak</label>
+				<input type="radio" name="spam" id="definitely" value="definitely">
+				<label for="definitely">Zdecydowanie</label>
+				<input type="radio" name="spam" id="choice" value="choice">
+				<label for="choice">A czy mam jakiś wybór?</label>
+			</div>
+			<div>
+				<input type="submit" name="submit" id="submit" value="Wyślij">
+			</div>
+		</form>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

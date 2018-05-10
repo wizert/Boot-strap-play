@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Witaj, świecie!</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#hello').dialog();
+}); // Koniec funkcji ready.
+</script>>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+      <h1>Witaj, świecie!</h1>
+      <p>Zwróć uwagę, że to okno dialogowe wygląda jak ostrzeżenie!</p>
+      <div id="hello" title="Witaj, świecie!">
+        <p>To okno dialogowe jest w rzeczywistości zwyczajnym elementem 
+           div, umieszczonym w wybranym miejscu strony przy użyciu 
+           umiejscawiania bezwzględnego.</p>
+        <p>Spróbuj przeciągnąć okno w inne miejsce strony. 
+          Owszem, możesz to zrobić!</p>
+      </div>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

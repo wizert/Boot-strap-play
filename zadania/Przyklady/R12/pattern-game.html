@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Porządkowanie kolorów</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="game.css" rel="stylesheet" >
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  var answer = ['r','o','y','g','b','i','v'].join('');
+
+   function coordinates(event,ui) {
+    console.log(ui.position);
+   }
+
+   $('#gameContainer').sortable({
+    axis : 'x',
+    stop : function (event, ui) {
+      if ($(this).sortable("toArray").join('') === answer) {
+        alert('Wygrałeś!');
+        $(this).sortable("disable");
+      }
+    },
+    sort : coordinates
+   });
+   
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Umieść kolory w takiej kolejności, w jakiej występują na tęczy.</h1>
+			<div id="gameContainer">
+        
+        <div id="v" class="piece violet">Fioletowy</div>
+        <div id="g" class="piece green">Zielony</div>
+        <div id="o" class="piece orange">Pomarańczowy</div>
+        <div id="r" class="piece red">Czerwony</div>
+        <div id="i" class="piece indigo">Indygo</div>
+        <div id="y" class="piece yellow">Żółty</div>
+        <div id="b" class="piece blue">Niebieski</div>
+        
+      </div>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Menu jQuery UI</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+.ui-menu {
+  width: 25%;
+}
+
+.ui-menu .ui-menu{
+   width: 100%;
+}
+
+
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#menu').menu();
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Proste menu</h1>
+			<ul id="menu">
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">O nas</a>
+          <ul>
+            <li><a href="#">Historia firmy</a></li>
+            <li><a href="#">Instrukcje dojazdu</a></li>
+            <li><a href="#">Godziny pracy</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Nasze produkty</a>
+          <ul>
+            <li><a href="#">Dinksy</a>
+              <ul>
+                <li><a href="#">Dinks prosty</a></li>
+                <li><a href="#">Dinks standardowy</a></li>
+                <li><a href="#">Dinks luksusowy</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Gadżety</a>
+              <ul>
+                <li><a href="#">Gadżet prosty</a></li>
+                <li><a href="#">Gadżet standardowy</a></li>
+                <li><a href="#">Gadżet luksusowy</a>
+                  <ul>
+                    <li><a href="#">Gadżet luksusowy A</a></li>
+                    <li><a href="#">Gadżet luksusowy B</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Wehikuły czasu</a></li>
+          </ul>
+        </li>
+      </ul>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

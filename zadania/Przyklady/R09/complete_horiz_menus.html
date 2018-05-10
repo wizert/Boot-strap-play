@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Menu jQuery UI</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#menu {
+  float: left;
+}
+#menu > li {
+  width: 10em;
+  float: left;
+}
+.ui-menu .ui-menu {
+  width: 10em;
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#menu').menu({
+  	  position: {
+        my: 'center top',
+        at: 'center bottom'
+      },
+      icons: { 
+        submenu: 'ui-icon-triangle-1-s'
+      }
+  });
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Single Level Horizontal Menus</h1>
+      <ul id="menu">
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">O nas</a>
+          <ul>
+            <li><a href="#">Historia firmy</a></li>
+            <li><a href="#">Instrukcje dojazdu</a></li>
+            <li><a href="#">Godziny pracy</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Nasze produkty</a>
+          <ul>
+            <li><a href="#">Dinksy</a></li>
+            <li><a href="#">Gadżety</a></li>
+            <li><a href="#">Wehikuły czasu</a></li>
+          </ul>
+        </li>
+      </ul>
+
+
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

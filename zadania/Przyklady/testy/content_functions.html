@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Funkcje obsługi treści ::  JavaScript i jQuery. Nieoficjalny podręcznik</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/site.js"></script><script>
+$(document).ready(function( ) {
+	$('.example').each(function() {
+		$this = $(this); // Odwołanie do znacznika p
+		$this.click(function() {
+			var oldHTML=$('#messageBox #changeContainer').html();
+			oldHTML = oldHTML.replace(/></g,'> <');
+			$('#before').text(oldHTML);
+			text = $('#content').val();
+			var codeElem = $(this).find('code');
+			var code = codeElem.text();
+      if (code.indexOf("remove();") == -1) {
+			 code = code.replace(/\(\)/,"('" + text + "')");
+      }
+			$('#jquery').text(code);
+			eval(code);
+			var newHTML=$('#messageBox #changeContainer').html();
+			newHTML = newHTML.replace(/></g,'> <');
+			$('#after').text(newHTML);
+			if ($('#message').length<1){
+				if ($('#reload').length<1) {
+					var reloadHTML='<p class="example" id="reload">The message box is gone! You used either the .replaceWith() of .remove() function. Click here to re-create the message box.';
+				$('#messageBox').append(reloadHTML);
+				$('#reload').click(function() {
+					resetBox();
+					$(this).remove();
+				}); 
+				}
+			}
+		});
+	});
+	
+	function resetBox() {
+	    var boxHTML = '<div id="message"><p>Tu się pojawi nowa treść</p></div>';
+		$('#changeContainer').html(boxHTML);
+    $('#after').text('');
+    $('#before').text(boxHTML);
+	}
+	
+});
+</script>
+<style>
+.results div code {
+	float: none;
+	margin-bottom: 25px;
+	display: block;
+	width: 100%;
+}
+#messageBox {
+	float: right;
+	padding: 10px;
+	border: 1px solid #0A3737;
+	margin-top: 15px;
+	width: 95%;
+}
+#messageBox code {
+	font-size: 15px;
+}
+#message {
+	font-size: 16px;
+	border: 1px solid red;
+	padding: 5px;
+}
+#message p {
+	font-size: 16px;
+}
+.codeRun {
+	font-weight: bold !important;
+	color: red;
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>jQuery Content Function Tester</h1>
+      <div class="results resultSection">
+        <div id="messageBox">
+          <div id="changeContainer">
+            <div id="message">
+              <p>Tu się pojawi nowa treść</p>
+            </div>
+          </div>
+          <h2>Kod HTML przed operacją:</h2>
+          <code id="before">&lt;div id=&quot;message&quot;&gt;&lt;p&gt;Tu się pojawi nowa treść&lt;/p&gt;&lt;/div&gt;</code>
+          <h2>Kod HTML po operacji:</h2>
+          <code id="after"></code> </div>
+      </div>
+      <form name="form1" method="post" action="">
+        <h2>Nowa treść</h2>
+        <p>
+          <textarea name="content" cols="30" rows="4" id="content"></textarea>
+        </p>
+      </form>
+      <h2>.text()</h2>
+      <p class="example"><code>$('#message').text();</code> </p>
+      <h2>.html()</h2>
+      <p class="example"><code>$('#message').html();</code> </p>
+      <h2>.append()</h2>
+      <p class="example"><code>$('#message').append();</code> </p>
+      <h2>.prepend()</h2>
+      <p class="example"><code>$('#message').prepend();</code> </p>
+      <h2>.after()</h2>
+      <p class="example"><code>$('#message').after();</code> </p>
+      <h2>.before()</h2>
+      <p class="example"><code>$('#message').before();</code> </p>
+      <h2>.replaceWith()</h2>
+      <p class="example"><code>$('#message').replaceWith();</code> </p>
+      <h2>.remove()</h2>
+      <p class="example"><code>$('#message').remove();</code> </p>
+      <h2>.empty()</h2>
+      <p class="example"><code>$('#message').empty();</code> </p>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+  <div id="resources">
+    <p class="open">+</p>
+    <h2>Testy</h2>
+    <ul class="nav">
+      <li><a href="selectors.html">Selektory jQuery</a></li>
+      <li><a href="content_functions.html">Testy funkcji content jQuery</a></li>
+      <li><a href="events.html">Testy zdarzeń</a></li>
+      <li><a href="effects.html">Testy efektów jQuery</a></li>
+      <li><a href="array_methods.html">Testy metod tablic</a></li>
+      <li><a href="regex_tester.html">Testy wyrażeń regularnych</a></li>
+    </ul>
+    <h2>Zasoby związane z jQuery</h2>
+    <ul class="nav">
+      <li><a href="http://jquery.com">jQuery</a></li>
+      <li><a href="http://jqueryui.com/">jQuery UI</a></li>
+      <li><a href="http://jquerymobile.com/">jQuery Mobile</a></li>
+      <li><a href="http://jqapi.com/">jQAPI.com</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sortowalna lista odtwarzania</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="interactions.css" rel="stylesheet" >
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  
+   $('.fileList').sortable({
+   	forcePlaceholderSize : true,
+    placeholder : 'ui-state-highlight',
+    connectWith : '.fileList'
+   });
+   
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Pliki i katalogi</h1>
+			<ul id="root">
+				<li class="folder">Katalog A 
+				  <ul class="fileList">
+						<li class="file">Streszczenie</li>
+						<li class="file">Wypracowanie</li>
+					</ul>
+				</li>
+				<li class="folder">Katalog B
+					<ul class="fileList">
+						<li class="file">Zadanie domowe</li>
+						<li class="file">Przepisy</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

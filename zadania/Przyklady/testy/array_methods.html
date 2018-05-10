@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Metody tablic :: JavaScript i jQuery. Nieoficjalny podręcznik</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/site.js"></script><script>
+$(document).ready(function( ) {
+function results(type,code,expl) {
+	if (type=="reset") {
+		$('.results div').not('#start').hide();
+		items = ['buty', 'skarpety', 'pasek', 'kapelusz'];	
+	} else {
+		$('.results div').show();
+	}
+	
+	if (items[0]!=undefined) {
+		$('#start code').html(items.toString());
+	} else {
+		$('#start code').html('<strong>Tablica jest pusta</strong>');
+	}
+		$('#code code').html(code);
+		var originalItems = items.toString();
+		var returnVal = eval(code);
+	if (items[0]!=undefined) {
+		if (originalItems==items.toString()) {
+		$('#finish code').html('<strong>Zawartość tablicy nie uległa zmianie</strong>');
+		} else {
+		$('#finish code').html(items.toString());
+		}
+	} else {
+		$('#finish code').html('<strong>Tablica jest pusta</strong>');
+	}
+		if (returnVal) {
+		$('#return code').html(returnVal.toString());
+		} else {
+		$('#return code').html('Nic nie zwrócono');
+		}
+		
+		$('#explanation code').html(expl);
+	}
+	
+	
+	$('.results div').not('#start').hide();
+	$('.example').click(function() {
+			var $this = $(this);
+			var resetA = $this.hasClass('reset');
+			var code = resetA ? "var items = ['buty', 'skarpety', 'pasek', 'kapelusz'];" : $this.text();
+			var expl = $this.attr('title') || 'none';
+			var type = resetA ? 'reset' : 'update';
+			results(type,code,expl);
+	});
+	
+	results('reset',"var items = ['buty', 'skarpety', 'pasek', 'kapelusz'];",false);
+	
+	
+});
+
+
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <div id="main">
+        <h1>Testy tablic</h1>
+        <div class="results">
+          <h2>Wyniki</h2>
+          <div id="start"><strong>Początkowa zawartość tablicy:</strong> <code>&nbsp;</code></div>
+          <div id="code"><strong>Kod JavaScript:</strong> <code>&nbsp;</code></div>
+          <div id="finish"><strong>Zawartość po wykonaniu kodu:</strong> <code>&nbsp;</code></div>
+          <div id="return"><strong>Wynik: </strong><code>&nbsp;</code></div>
+          <div id="explanation"><strong>Wyjaśnienie:</strong><code class="explanation">&nbsp;blah</code></div>
+          <div id="reset">
+            <p class="example reset">Przywróć stan początkowy</p>
+          </div>
+        </div>
+        
+        <div class="unit">
+          <h2>Metoda splice</h2>
+          <p class="example" title="usuwa trzeci element i wstawia dwa nowe">items.splice(2,1,'płaszcz','szalik');</p>
+          <h2>Metoda push</h2>
+          <p class="example" title="dodaje dwa elementy na końcu tablicy i zwraca całkowitą liczbę jej elementów">items.push('parasol','koszula');</p>
+          <h2>Metoda unshift</h2>
+          <p class="example" title="dodaje dwa elementy na początku tablicy i zwraca całkowitą liczbę jej elementów">items.unshift('karwat','spodnie');</p>
+          <h2>Metoda shift</h2>
+          <p class="example" title="usuwa jeden element z początku tablicy">items.shift();</p>
+        </div>
+        <div class="unit">
+          <h2>Metoda pop</h2>
+          <p class="example" title="usuwa jeden element z końca tablicy">items.pop();</p>
+          <h2>Metoda slice</h2>
+          <p class="example" title="tworzy nową tablicę stanowiącą fragment pierwotnej tablicy. Pierwszy argument to indeks pierwszego elementu pobieranego fragmentu tablicy, a drugi to indeks ostatniego elementu">items.slice(1,2);</p>
+          <h2>Metoda reverse</h2>
+          <p class="example" title="odwraca kolejność elementów w tablicy">items.reverse();</p>
+          <h2>Metoda join</h2>
+          <p class="example" title="tworzy łańcuch znaków łącząc wszystkie wartości zapisane w tablicy. Łańcuch znaków podany w wywołaniu funkcji join() jest używany jako separator">items.join(':');</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+  <div id="resources">
+    <p class="open">+</p>
+    <h2>Testy</h2>
+    <ul class="nav">
+      <li><a href="selectors.html">Selektory jQuery</a></li>
+      <li><a href="content_functions.html">Testy funkcji content jQuery</a></li>
+      <li><a href="events.html">Testy zdarzeń</a></li>
+      <li><a href="effects.html">Testy efektów jQuery</a></li>
+      <li><a href="array_methods.html">Testy metod tablic</a></li>
+      <li><a href="regex_tester.html">Testy wyrażeń regularnych</a></li>
+    </ul>
+    <h2>Zasoby związane z jQuery</h2>
+    <ul class="nav">
+      <li><a href="http://jquery.com">jQuery</a></li>
+      <li><a href="http://jqueryui.com/">jQuery UI</a></li>
+      <li><a href="http://jquerymobile.com/">jQuery Mobile</a></li>
+      <li><a href="http://jqapi.com/">jQAPI.com</a></li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

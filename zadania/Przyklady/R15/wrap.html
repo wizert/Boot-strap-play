@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Zastosowanie funkcji .wrap()</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#gallery img {
+	display: inline-block;
+	margin: 10px;
+	position: relative;	
+}
+
+#gallery .figure {
+	float: left;
+	border: 1px solid white;
+	margin-right: 10px;
+	text-align: center;	
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	
+  // Przeglądamy listę wszystkich obrazków
+  $('img').each(function() {
+  	// Zapisujemy odwołanie do aktualnego obrazka.
+    var $this = $(this); 
+    // Pobieramy wartość właściwości alt na potrzeby wyświetlenia tytułu.
+    var caption = $this.attr('alt'); 
+    // Dodanie kodu HTML.
+    $this.wrap('<div class="figure"></div>').after('<p>' + caption + '</p>');
+  }); // Koniec funkcji each.
+
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+	  <div class="main">
+	    <h1>Zastosowanie funkcji .wrap()</h1>
+            <div id="gallery"><img src="images/zoom_out.png" width="80" height="80" alt="zoom"> <img src="images/vacancy.png" width="80" height="80" alt="vacnacy"><img src="images/user.png" width="80" height="80" alt="user"><img src="images/upload.png" width="80" height="80" alt="upload"><img src="images/undo.png" width="80" height="80" alt="undo"><img src="images/support.png" width="80" height="80" alt="support"></div>
+	  </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

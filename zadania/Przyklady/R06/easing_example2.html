@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tempo animacji: przykład 2.</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+#animate {
+	width: 200px;
+	height: 200px;
+	background-color: tomato;
+	padding: 20px;
+}
+#animate p {
+	color: black;	
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+ $('#animate').click(function() {
+ 	$this = $(this);
+ 	if ($this.data('click') === 'even') {
+ 		$this.data('click','odd')
+ 		$this.animate({
+		 width: '200px',
+		 height: '200px' 
+     	},1000,
+	 	'easeInOutSine'); // Koniec funkcji animate.
+ 	} else {
+ 		$this.data('click','even');
+ 		$this.animate({
+			width: '400px',
+			height: '400px' 
+     	},1000,
+	 	'easeInBounce'); // Koniec funkcji animate.
+
+ 	}
+ }); // Koniec funkcji click.
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+<div class="content">
+	<div class="main">
+<h1>Tempo animacji: przykład 2.</h1>
+<div id="animate"><p>Kliknij mnie!</p></div>
+</div>
+</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

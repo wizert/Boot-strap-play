@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie funkcji .prevAll() oraz .nextAll()</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+.button {
+	width: 40px;
+	height: 40px;
+	background-color: gray;
+	float: left;	
+	margin-right: 20px;
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.button').click(function() {
+	  var $this=$(this)
+	  $this.css({
+		  'backgroundColor':'red',
+		  'opacity' : 1
+	  });
+	  $this.siblings('.button').css('backgroundColor','grey');
+	  $this.prevAll('.button').fadeTo(250,.5);
+	  $this.nextAll('.button').fadeTo(250,1);
+  }); // Koniec funkcji mouseOver.
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+	  <div class="main">
+	    <h1>Stosowanie funkcji .prevAll() oraz .nextAll()</h1>
+        <p>Kliknij jeden z poniższych kwadratów</p>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           <div class="button"></div>
+           
+	  </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Jednostronicowa lista FAQ</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style type="text/css">
+h2 {
+  background: url(../_images/open.png) no-repeat 0 11px;
+  padding: 10px 0 0 25px;
+  cursor: pointer;
+}
+h2.close {
+  background-image: url(../_images/close.png);
+}
+.faq {
+  border-radius: 10px;
+  background-color:  rgba(0,0,0,.05);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.answer {
+  margin-left: 25px;  
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('.answer').hide();
+    $('.main h2').click(function() {
+      var $answer = $(this).next('.answer');
+      if ($answer.is(':hidden')) {
+        $answer.slideDown();
+        $(this).addClass('close');
+      } else {
+        $answer.fadeOut();
+        $(this).removeClass('close');
+      }
+    }); // Koniec funkcji click.
+  }); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>Jednostronicowa lista FAQ</h1>
+      <h2>Słyszałem, że JavaScript to fontanna młodości. Czy to prawda?</h2>
+      <div class="answer">
+        <p>Tak, naprawdę! Badania wykazały, ża nauka języka JavaScript ożywia umysł i wydłuża oczekiwany czas życia o kilkaset lat. (Uwaga: część naukowców nie zgadza się z tymi twierdzeniami).</p>
+      </div>
+      <h2>Czy język JavaScript rzeczywiście rozwiąże wszystkie moje problemy?</h2>
+      <div class="answer">
+        <p>Tak! Jest to najbardziej wszechstronny język programowania na świecie oraz ma funkcje doradztwa finansowego, reanimacji i opiekowania się zwierzętami domowymi.</p>
+      </div>
+      <h2>Czy jest coś, czego JavaScript <em>nie</em> potrafi?</h2>
+      <div class="answer">
+        <p>Nie! Potrafi nawet pisać stronnicze strony FAQ na swój temat. To naprawdę inteligentny język programowania!</p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

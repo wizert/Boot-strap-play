@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie funkcji</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+var biblioText='';
+$('.main a[href^="http://"]').each(function() {
+  var siteText = $(this).text();
+  var extLink = $(this).attr('href');
+  biblioText += '<li><strong>' + siteText + ":</strong> " + extLink + '</li>\n';
+}); // Koniec funkcji each.
+
+if (biblioText) {
+  bibHTML = '<div id="bib"><p>Witryny dowołujące się do tego dokumentu:</p></div>';
+  $(bibHTML).append(biblioText).appendTo($('.main'));
+}
+
+}); // Koniec funkcji ready.
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+<div class="content">
+	<div class="main">
+	<h1>Bibliografia tworzona dynamicznie</h1>
+	  <p>Od początku istnienia WWW pojawiło się w niej wiele wspaniałych witryn. Na myśl przychodzi mi, na przykład <a href="http://www.yahoo.com/">Yahoo!</a>, jak również <a href="http://www.google.com/">Google</a>. A kilka z nich miało naprawdę spory wpływ, choćby <a href="http://www.hampsterdance.com/">Hampster Dance</a>.</p>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</div>
+</body>
+</html>

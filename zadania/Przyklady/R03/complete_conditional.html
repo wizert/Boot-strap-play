@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Stosowanie instrukcji warunkowych</title>
+<link href="../_css/site.css" rel="stylesheet">
+<script>
+var luckyNumber = prompt('Jaka jest Twoja szczęśliwa liczba?','');
+luckyNumber = parseInt(luckyNumber, 10);
+if (isNaN(luckyNumber)) {
+ luckyNumber = prompt('Proszę, podaj swoją szczęśliwą liczbę.','');
+}
+</script>
+</head>
+
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+      <h1>Stosowanie instrukcji warunkowych</h1>
+		<script>
+		if (luckyNumber == 7 ) {
+			document.write("<p>7 to także moja szczęśliwa liczba!</p>");
+		} else if (luckyNumber == 13 || luckyNumber == 24) {
+ 			document.write("<p>Naprawdę " + luckyNumber + "? To pechowa liczba!</p>");
+		} else {
+ 			document.write("<p>Twoja szczęśliwa liczba to " + luckyNumber + "!</p>");
+		}
+	
+		</script> </div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Logowanie</title>
+<link href="../_css/site.css" rel="stylesheet">
+<style>
+form {
+	padding: 10px 10px 10px 10px;
+}
+label {
+	display: inline-block;
+	width: 100px;
+	text-align:right;
+	margin: 0 15px 0 0;
+	color: white;
+}
+input {
+	font-size: 14px;	
+}
+#button {
+	margin-left: 115px;	
+}
+</style>
+<script src="../_js/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$('#login').submit(function() {
+    var formData = $(this).serialize();
+    $.post('login.php',formData,processData);
+    function processData(data) {
+		  console.log(data==='pass');
+      if (data==='pass') {
+         $('.main').html('<p>Logowanie zakończyło się powodzeniem!</p>');
+      } else {
+        if ($('#fail').length === 0) {
+      	   $('#formwrapper').prepend('<p id="fail">Nieprawidłowe dane uwierzytelniające. Spróbuj ponownie.</p>');
+        }
+      }
+    } // Koniec funkcji processData.
+    return false;
+  }); // Koniec funkcji submit.
+		
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>Logowanie</h1>
+      <div id="formwrapper">
+        <form method="get" action="login.php" id="login">
+          <p>
+            <label for="username">Nazwa:</label>
+            <input type="text" name="username" id="username">
+          </p>
+          <p>
+            <label for="password">Hasło: </label>
+            <input type="password" name="password" id="password">
+          </p>
+          <p>
+            <input type="submit" name="button" id="button" value="Wyślij" >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

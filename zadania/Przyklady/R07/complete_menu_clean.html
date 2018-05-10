@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Responsywne menu nawigacyjne</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="../_css/site.css" rel="stylesheet">
+<link rel="stylesheet" href="smartmenus/sm-core-css.css">
+<link rel="stylesheet" href="smartmenus/sm-clean.css">
+<script src="../_js/jquery.min.js"></script>
+<script src="smartmenus/jquery.smartmenus.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('.sm').smartmenus({
+    showFunction: function($ul, complete) {
+      $ul.slideDown(250, complete);
+    },
+    hideFunction: function($ul, complete) {
+     $ul.slideUp(250, complete); 
+    }
+  });
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+  <div class="content">
+    <div class="main">
+      <h1>Menu nawigacyjne</h1>
+      <ul class="sm sm-clean">
+        <li><a href="#">Strona główna</a></li>
+        <li><a href="#">O nas</a>
+          <ul>
+            <li><a href="#">Historia firmy</a></li>
+            <li><a href="#">Instrukcja dojazdu</a></li>
+            <li><a href="#">Godziny pracy</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Nasze produkty</a>
+          <ul>
+            <li><a href="#">Dinksy</a>
+              <ul>
+                <li><a href="#">Dinks prosty</a></li>
+                <li><a href="#">Dinks standardowy</a></li>
+                <li><a href="#">Dinks luksusowy</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Gadżety</a>
+              <ul>
+                <li><a href="#">Gadżet prosty</a></li>
+                <li><a href="#">Gadżet standardowy</a></li>
+                <li><a href="#">Gadżet luksusowy</a>
+                  <ul>
+                    <li><a href="#">Gadżet luksusowy A</a></li>
+                    <li><a href="#">Gadżet luksusowy B</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Wehikuły czasu</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p style="clear:both;padding-top: 20px;" >Przykład responsywnego menu nawigacyjnego utworzonego przy użyciu jQuery i wtyczki <a href="http://www.smartmenus.org">SmartMenus</a> Vasila Dinkov'a .</p>
+    </div>
+  </div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+</body>
+</html>

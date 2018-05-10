@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Hello World</title>
+<link href="../_css/jquery-ui.min.css" rel="stylesheet">
+<link href="../_css/site.css" rel="stylesheet">
+<link href="interactions.css" rel="stylesheet">
+<script src="../_js/jquery.min.js"></script>
+<script src="../_js/jquery-ui.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#note').draggable({
+    drag : function (e,ui) {
+      $('#left').text(ui.position.left);
+      $('#top').text(ui.position.top);
+      $('#oleft').text(ui.offset.left);
+      $('#otop').text(ui.offset.top);
+      $('#originalleft').text(ui.originalPosition.top);
+    }
+  });
+}); // Koniec funkcji ready.
+</script>
+</head>
+<body>
+<div class="wrapper">
+  <header>
+    JAVASCRIPT <span class="amp">i</span> jQUERY. NIEOFICJALNY&nbsp;PODRĘCZNIK
+  </header>
+	<div class="content">
+		<div class="main">
+			<h1>Ruchoma notatka</h1>
+      <div id="note">
+        <h2>Możesz mnie przeciągać</h2>
+        <p>Jestem zwyczajną notatką na stronie.</p>
+        <p>Left: <br>ui.position.left: <span id="left"></span><br> ui.offset.left: <span id="oleft"></span><br> ui.originalposition.left: <span id="originalleft"></span> </p>
+        <p>Top: <br>ui.position.top: <span id="top"></span><br> ui.offset.top: <span id="otop"></span></p>
+      </div>
+	</div>
+  <footer>
+    <p>JavaScript i jQuery. Nieoficjalny podręcznik. Wydanie III, autor <a href="http://sawmac.com/">David McFarland</a>. Wydane przez <a href="http://helion.pl/">Helion</a>.</p>
+  </footer>
+</div>
+    </div>
+</body>
+</html>
